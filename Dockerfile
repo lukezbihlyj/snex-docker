@@ -48,12 +48,6 @@ USER nobody
 
 # Add application
 WORKDIR /app
-COPY --chown=nobody . /app/
-COPY --chown=nobody config/local.php.production.dist /app/config/local.php
-
-# Run some build steps for the app
-RUN composer install
-RUN php public/index.php asset:dump
 
 # Expose the port nginx is reachable on
 EXPOSE 80
